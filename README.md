@@ -1,8 +1,8 @@
 # Local Neighborhood Graph Autoencoders
 
-This is a Keras implementation of the symmetrical autoencoder architecture with parameter sharing for the tasks of link prediction and semi-supervised node classification, as described in the forthcoming arXiv paper:
+This is a Keras implementation of the symmetrical autoencoder architecture with parameter sharing for the tasks of link prediction and semi-supervised node classification, as described in the arXiv paper:
 
-Phi Vu Tran. 2018. Learning to Make Predictions on Graphs with Autoencoders.
+Phi Vu Tran. 2018. [Learning to Make Predictions on Graphs with Autoencoders.](https://arxiv.org/abs/1802.08352)
 
 ![FCN_schematic](figure1.png?raw=true)
 
@@ -27,19 +27,19 @@ The code is tested on Ubuntu 16.04 with the following components:
 
 ### Datasets
 
-Citation network datasets from [Thomas Kipf and Max Welling. 2016. Semi-Supervised Classification with Graph Convolutional Networks.](https://github.com/tkipf/gcn)
+Citation network datasets from [Thomas Kipf and Max Welling. 2016. Semi-Supervised Classification with Graph Convolutional Networks](https://github.com/tkipf/gcn):
 
 * `Cora`, `Citeseer`, `Pubmed`
 
-Miscellaneous network datasets from [Aditya Krishna Menon and Charles Elkan. 2011. Link Prediction via Matrix Factorization.](http://users.cecs.anu.edu.au/~akmenon/papers/link-prediction/index.html)
+Miscellaneous network datasets from [Aditya Krishna Menon and Charles Elkan. 2011. Link Prediction via Matrix Factorization](http://users.cecs.anu.edu.au/~akmenon/papers/link-prediction/index.html):
 
 * `Protein`, `Metabolic`, `Conflict`, `PowerGrid`
 
-If you want to use your own dataset, the following are required:
+For custom graph datasets, the following are required:
 
-* $N \times N$ adjacency matrix ($N$ is the number of nodes) [required for link prediction],
-* $N \times F$ matrix of node features ($F$ is the number of features per node) [optional for link prediction],
-* $N \times C$ matrix of one-hot labels ($C$ is the number of classes) [required for node classification].
+* N by N adjacency matrix (N is the number of nodes) [required for link prediction],
+* N by F matrix of node features (F is the number of features per node) [optional for link prediction],
+* N by C matrix of one-hot label classes (C is the number of classes) [required for node classification].
 
 For an example of how to prepare the input dataset, take a look at the `load_citation_data()` function in `utils_gcn.py`.
 
@@ -67,15 +67,14 @@ $ python train_multitask_lpnc.py <dataset_str> <gpu_id>
 The flag `<dataset_str>` refers to one of the following seven supported dataset strings:
 `protein`, `metabolic`, `conflict`, `powergrid`, `cora`, `citeseer`, `pubmed`. The flag `<gpu_id>` denotes the GPU device ID, `0` by default if only one GPU is available.
 
-<!--## Citation
+## Citation
 If you find this work useful, please cite the following:
 
 ```
 @article{Tran:2018,
   author={Phi Vu Tran},
   title={Learning to Make Predictions on Graphs with Autoencoders},
-  journal={arXiv:1708.02002 [cs.CV].},
-  note={\url{https://arxiv.org/abs/1708.02002}},
+  journal={arXiv:1802.08352 [cs.CV]},
+  note={\url{https://arxiv.org/abs/1802.08352}},
   year={2018}
 }
-```-->
