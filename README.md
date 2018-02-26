@@ -16,8 +16,8 @@ The code is tested on Ubuntu 16.04 with the following components:
 * CUDA 8.0 with CuDNN 5.1
 * NetworkX 1.11
 * NumPy 1.11
-* Scipy 0.17.0
-* Scikit-learn 0.18.1
+* SciPy 0.17.0
+* Scikit-Learn 0.18.1
 
 ### Hardware
 
@@ -74,7 +74,7 @@ If you find this work useful, please cite the following:
 @article{Tran:2018,
   author={Phi Vu Tran},
   title={Learning to Make Predictions on Graphs with Autoencoders},
-  journal={arXiv:1802.08352 [cs.CV]},
+  journal={arXiv:1802.08352},
   note={\url{https://arxiv.org/abs/1802.08352}},
   year={2018}
 }
