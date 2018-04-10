@@ -49,7 +49,7 @@ if dataset in ['protein', 'metabolic', 'conflict']:
     if dataset != 'conflict':
         train.setdiag(1.0)
 elif dataset in ['cora', 'citeseer', 'pubmed']:
-    adj, feats ,_,_,_,_,_,_ = load_citation_data(dataset)
+    adj, feats,_,_,_,_,_,_ = load_citation_data(dataset)
     feats = MaxAbsScaler().fit_transform(feats).tolil()
     print('\nPreparing test split...\n')
     test_inds = split_citation_data(adj)
@@ -57,6 +57,8 @@ elif dataset in ['cora', 'citeseer', 'pubmed']:
     train = adj.copy()
     if dataset != 'pubmed':
         train.setdiag(1.0)
+    else:
+        train.setdiag(0.0)
 else:
     raise Exception('Supported strings: {protein, metabolic, conflict, cora, citeseer, pubmed}')
 

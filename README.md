@@ -27,19 +27,23 @@ The code is tested on Ubuntu 16.04 with the following components:
 
 ### Datasets
 
-Citation network datasets from [Thomas Kipf and Max Welling. 2016. Semi-Supervised Classification with Graph Convolutional Networks](https://github.com/tkipf/gcn):
+Citation networks from [Thomas Kipf and Max Welling. 2016. Semi-Supervised Classification with Graph Convolutional Networks](https://github.com/tkipf/gcn):
 
 * `Cora`, `Citeseer`, `Pubmed`
 
-Miscellaneous network datasets from [Aditya Krishna Menon and Charles Elkan. 2011. Link Prediction via Matrix Factorization](http://users.cecs.anu.edu.au/~akmenon/papers/link-prediction/index.html):
+Collaboration and social networks from [Wang et al. 2016. Structural Deep Network Embedding](https://github.com/suanrong/SDNE):
+
+* `Arxiv-GRQC`, `BlogCatalog`
+
+Miscellaneous networks from [Aditya Krishna Menon and Charles Elkan. 2011. Link Prediction via Matrix Factorization](http://users.cecs.anu.edu.au/~akmenon/papers/link-prediction/index.html):
 
 * `Protein`, `Metabolic`, `Conflict`, `PowerGrid`
 
 For custom graph datasets, the following are required:
 
-* N by N adjacency matrix (N is the number of nodes) [required for link prediction],
-* N by F matrix of node features (F is the number of features per node) [optional for link prediction],
-* N by C matrix of one-hot label classes (C is the number of classes) [required for node classification].
+* N x N adjacency matrix (N is the number of nodes) [required for link prediction],
+* N x F matrix of node features (F is the number of features per node) [optional for link prediction],
+* N x C matrix of one-hot label classes (C is the number of classes) [required for node classification].
 
 For an example of how to prepare the input dataset, take a look at the `load_citation_data()` function in `utils_gcn.py`.
 
@@ -49,6 +53,10 @@ For training and evaluation, execute the following `bash` commands in the same d
 ```bash
 # Set the PYTHONPATH environment variable
 $ export PYTHONPATH="/path/to/this/repo:$PYTHONPATH"
+
+# Train the autoencoder model for network reconstruction
+# using only latent features learned from local graph topology.
+$ python train_reconstruction.py <dataset_str> <gpu_id>
 
 # Train the autoencoder model for link prediction using
 # only latent features learned from local graph topology.
@@ -64,8 +72,8 @@ $ python train_lp_with_feats.py <dataset_str> <gpu_id>
 $ python train_multitask_lpnc.py <dataset_str> <gpu_id>
 ```
 
-The flag `<dataset_str>` refers to one of the following seven supported dataset strings:
-`protein`, `metabolic`, `conflict`, `powergrid`, `cora`, `citeseer`, `pubmed`. The flag `<gpu_id>` denotes the GPU device ID, `0` by default if only one GPU is available.
+The flag `<dataset_str>` refers to one of the following nine supported dataset strings:
+`protein`, `metabolic`, `conflict`, `powergrid`, `cora`, `citeseer`, `pubmed`, `arxiv-grqc`, `blogcatalog`. The flag `<gpu_id>` denotes the GPU device ID, `0` by default if only one GPU is available.
 
 ## Citation
 If you find this work useful, please cite the following:

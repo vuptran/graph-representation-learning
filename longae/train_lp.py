@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 """
-This script trains a model based on symmetrical autoencoder
+This script trains a model based on the symmetrical autoencoder
 architecture with parameter sharing. The model performs link
 prediction using only latent features learned from local graph topology.
 
@@ -36,7 +36,7 @@ if dataset in ['protein', 'metabolic', 'conflict', 'powergrid']:
     test_inds = split_train_test(dataset, adj, fold=0)
     train = adj.copy()
 elif dataset in ['cora', 'citeseer', 'pubmed']:
-    adj, feats ,_,_,_,_,_,_ = load_citation_data(dataset)
+    adj, feats,_,_,_,_,_,_ = load_citation_data(dataset)
     print('\nPreparing test split...\n')
     test_inds = split_citation_data(adj)
     test_inds = np.vstack({tuple(row) for row in test_inds})

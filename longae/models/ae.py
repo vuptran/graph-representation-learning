@@ -30,7 +30,11 @@ def mbce(y_true, y_pred):
     neg = K.cast(K.equal(y_true, 0.0), dtype=np.float32)
     num_neg = K.sum(neg, axis=None)
     pos_ratio = 1.0 - num_pos / num_neg
-    mbce = mask * tf.nn.weighted_cross_entropy_with_logits(targets=y_true, logits=y_pred, pos_weight=pos_ratio)
+    mbce = mask * tf.nn.weighted_cross_entropy_with_logits(
+            targets=y_true,
+            logits=y_pred,
+            pos_weight=pos_ratio
+    )
     mbce = K.sum(mbce, axis=1) / num_examples
     return K.mean(mbce, axis=-1)
 
@@ -73,7 +77,7 @@ def autoencoder(dataset, adj, weights=None):
         # for conflict, metabolic, protein networks
         noisy_data = Dropout(rate=0.2, name='drop0')(data)
     else:
-        # for citation and powergrid networks
+        # for citation, blogcatalog, arxiv-grqc, and powergrid networks
         noisy_data = Dropout(rate=0.5, name='drop0')(data)
 
     ### First set of encoding transformation ###
