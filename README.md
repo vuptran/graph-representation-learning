@@ -1,8 +1,9 @@
 # Local Neighborhood Graph Autoencoders
 
-This is a Keras implementation of the symmetrical autoencoder architecture with parameter sharing for the tasks of link prediction and semi-supervised node classification, as described in the arXiv paper:
+This is a Keras implementation of the symmetrical autoencoder architecture with parameter sharing for the tasks of link prediction and semi-supervised node classification, as described in the paper:
 
-Phi Vu Tran. 2018. [Learning to Make Predictions on Graphs with Autoencoders.](https://arxiv.org/abs/1802.08352)
+Tran, Phi Vu: [Learning to Make Predictions on Graphs with Autoencoders.](https://arxiv.org/abs/1802.08352) Proceedings of the 5th IEEE International
+Conference on Data Science and Advanced Analytics (2018).
 
 ![FCN_schematic](figure1.png?raw=true)
 
@@ -79,10 +80,9 @@ The flag `<dataset_str>` refers to one of the following nine supported dataset s
 If you find this work useful, please cite the following:
 
 ```
-@article{Tran:2018,
-  author={Phi Vu Tran},
+@inproceedings{Tran-LoNGAE:2018,
+  author={Tran, Phi Vu},
   title={Learning to Make Predictions on Graphs with Autoencoders},
-  journal={arXiv:1802.08352},
-  note={\url{https://arxiv.org/abs/1802.08352}},
+  booktitle={5th IEEE International Conference on Data Science and Advanced Analytics},
   year={2018}
 }
