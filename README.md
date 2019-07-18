@@ -1,13 +1,13 @@
-# Local Neighborhood Graph Autoencoders
+# Multi-Task Graph Autoencoders
 
-This is a Keras implementation of the symmetrical autoencoder architecture with parameter sharing for the tasks of unsupervised link prediction and semi-supervised node classification, as described in the following:
+This is a Keras implementation of the symmetrical autoencoder architecture with parameter sharing for the tasks of link prediction and semi-supervised node classification, as described in the following:
 
 Tran, Phi Vu. [Learning to Make Predictions on Graphs with Autoencoders.](https://arxiv.org/abs/1802.08352) Proceedings of the 5th IEEE International
 Conference on Data Science and Advanced Analytics (2018). Full oral paper.
 
 Tran, Phi Vu. [Multi-Task Graph Autoencoders.](https://arxiv.org/abs/1811.02798) NIPS 2018 Workshop on Relational Representation Learning. Short poster paper.
 
-![FCN_schematic](figure1.png?raw=true)
+![schematic](figure1.png?raw=true)
 
 ## Requirements
 The code is tested on Ubuntu 16.04 with the following components:
